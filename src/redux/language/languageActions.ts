@@ -14,17 +14,22 @@ interface AddLanguageAction {
 export type LanguageActionTypes = ChangeLanguageAction | AddLanguageAction
 
 
-export const changeLanguageActionCreator = (languageCode: "en" | "zh") : ChangeLanguageAction =>  {
+export const changeLanguageActionCreator = (
+    languageCode: "en" | "zh"
+    ) : ChangeLanguageAction =>  {
     return {
         type: CHANGE_LANGUAGE,
-        payload: languageCode
+        payload: languageCode,
     }
 }
 
 
-export const addLanguageActionCreator = (name: string, code: string) : AddLanguageAction =>{
-    return{
+export const addLanguageActionCreator = (
+    name: string, 
+    code: string
+    ) : AddLanguageAction => {
+    return {
         type: ADD_LANGUAGE,
         payload: { name, code },
-    }
-}
+    };
+};
