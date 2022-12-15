@@ -3,8 +3,16 @@ import styles from "./Header.module.css";
 import logo from '../../assets/logo.svg';
 import { Layout, Typography, Input, Menu, Button, Dropdown } from "antd";
 import { GlobalOutlined } from "@ant-design/icons"
+import { useParams, useLocation, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
 
 export const Header: React.FC = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const params = useParams();
+  const language = useSelector((state: RootState) => state.language);
+
     return (
         <div className={styles["app-header"]}>
         {/* top-header */}
@@ -29,16 +37,18 @@ export const Header: React.FC = () => {
                 
                 
                 <Button.Group className={styles["button-group"]}>
-                    <Button>Register</Button>
-                    <Button>Login</Button>
+                    <Button onClick={()=>navigate("/register")}>Register</Button>
+                    <Button onClick={()=>navigate("/signin")}>Login</Button>
                 </Button.Group>   
             </div>
             </div>
         <Layout.Header className={styles['main-header']}>
+          <span onClick={()=>navigate("/")}>
           <img src={logo} alt="logo" className={styles["App-logo"]}/>
           <Typography.Title level={3} className={styles.title}>
             React Travel
           </Typography.Title>
+          </span>          
           <Input.Search
             placeholder={'Please input destination, theme, or keywords'}
             className={styles["search-input"]}
