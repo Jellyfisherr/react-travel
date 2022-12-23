@@ -49,7 +49,12 @@ class HomePageComponent extends React.Component<PropsType> {
       this.props.fetchStart()
         try {
           const {data} = await axios.get(
-            "http://123.56.149.216:8080/api/productCollections" ,            
+            "http://123.56.149.216:8080/api/productCollections" ,   
+            {
+              headers: {
+                "x-icode":"D860A132536E048B",
+              }
+            }         
              );
              this.props.fetchSuccess(data)             
         } catch (error) {
@@ -128,6 +133,6 @@ class HomePageComponent extends React.Component<PropsType> {
 }
 
 export const HomePage = connect(
-  mapDispatchToProps, 
+  mapStateToProps, 
   mapDispatchToProps
   )(withTranslation()(HomePageComponent)); 
