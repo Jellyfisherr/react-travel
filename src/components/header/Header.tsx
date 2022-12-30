@@ -72,6 +72,7 @@ export const Header: React.FC = () => {
           <Input.Search
             placeholder={'Please input destination, theme, or keywords'}
             className={styles["search-input"]}
+            onSearch={(keyword) => navigate("/search" + keyword)}
           />
         </Layout.Header>
         <Menu 
