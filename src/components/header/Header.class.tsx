@@ -81,7 +81,7 @@ class HeaderComponent extends React.Component<PropsType>{
                     <Button onClick={()=>navigate("/register")}>{t("header.register")}</Button>
                     <Button onClick={()=>navigate("/signin")}>{t("header.signin")}</Button>
                 </Button.Group>   
-            </div>
+              </div>
             </div>
         <Layout.Header className={styles['main-header']}>
           <span onClick={()=>navigate("/")}>
@@ -92,8 +92,9 @@ class HeaderComponent extends React.Component<PropsType>{
           </span>          
           <Input.Search
             placeholder={'Please input destination, theme, or keywords'}
-            className={styles["search-input"]}
-          />
+            className={styles["search-input"]}   
+            onSearch={(keyword) => navigate("/search/" + keyword)}         
+          />         
         </Layout.Header>
         <Menu 
           mode={"horizontal"} 

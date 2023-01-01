@@ -66,13 +66,13 @@ export const Header: React.FC = () => {
           <span onClick={()=>navigate("/")}>
           <img src={logo} alt="logo" className={styles["App-logo"]}/>
           <Typography.Title level={3} className={styles.title}>
-            React Travel
+            {t("header.title")}
           </Typography.Title>
           </span>          
           <Input.Search
             placeholder={'Please input destination, theme, or keywords'}
             className={styles["search-input"]}
-            onSearch={(keyword) => navigate("/search" + keyword)}
+            onSearch={(keyword) => navigate("/search/" + keyword)}
           />
         </Layout.Header>
         <Menu 

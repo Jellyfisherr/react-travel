@@ -9,6 +9,7 @@ import { commentMockData } from "./mockup";
 import { productDetailSlice, getProductDetail } from "../../redux/productDetail/slice";
 import { useSelector, useAppDispatch } from "../../redux/hooks";
 import { useDispatch } from "react-redux"; 
+import { MainLayout } from "../../layouts/mainLayout";
 
 const { RangePicker } = DatePicker;
 
@@ -54,9 +55,8 @@ export const DetailPage: React.FC = () => {
     if (error) {
       return <div>Error: {error}</div>
     }
-    return <>
-        <Header />
-        <div className={styles["page-content"]}>
+    return ( 
+        <MainLayout>
             <div className={styles["product-intro-container"]}></div>
               <Row>
                 <Col span={13}><ProductIntro 
@@ -123,7 +123,6 @@ export const DetailPage: React.FC = () => {
                     <ProductComments data={commentMockData} />
                  </div>
             </div>
-        </div>
-        <Footer />
-    </>;
+        </MainLayout>
+    );
 };

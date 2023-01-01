@@ -12,6 +12,7 @@ import { RootState } from "../../redux/store";
 import { 
   giveMeDataActionCreator
  } from "../../redux/recommendProducts/recommendProductsActions";
+ import { MainLayout } from "../../layouts/mainLayout";
 
 
 const mapStateToProps = (state: RootState) => {
@@ -63,10 +64,7 @@ class HomePageComponent extends React.Component<PropsType> {
       }
     
     return (
-        <>
-        <Header />
-        {/* Content */}
-        <div className={styles['page-content']}>
+        <MainLayout>       
           <Row style={{marginTop: 20}}>
             <Col span={6}>
                 <SideMenu />
@@ -102,10 +100,8 @@ class HomePageComponent extends React.Component<PropsType> {
             sideImage={sideImage3}
             products={productList[2].touristRoutes}
             />        
-        </div>
-        <Footer />   
-    </>
-    )
+        </MainLayout>    
+    );
   }
 }
 

@@ -5,6 +5,7 @@ import { useParams, useLocation } from "react-router-dom";
 import { Spin } from "antd";
 import { searchProduct } from "../../redux/productSearch/slice";
 import { useSelector, useAppDispatch } from "../../redux/hooks";
+import { MainLayout } from "../../layouts/mainLayout";
 
 type MatchParams = {
     keywords: string
@@ -52,10 +53,8 @@ export const SearchPage: React.FC = () => {
       return <div>Error: {error}</div>
     }
 
-    return(
-    <>
-        <Header />
-        <div className={styles["page-content"]}>
+    return (
+        <MainLayout>
             {/* Category filter */}
             <div className={styles["product-list-container"]}>
                 <FilterArea />
@@ -68,8 +67,6 @@ export const SearchPage: React.FC = () => {
                   onPageChange={onPageChange}
                 />
             </div>
-        </div>
-        <Footer />
-    </>
+        </MainLayout>    
   );
-}
+};
